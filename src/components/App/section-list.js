@@ -63,6 +63,13 @@ export default class SectionList extends React.Component {
                         }
                     }
 
+                    @media (max-width: 450px) {
+                        .table__container {
+                            max-height: 300px;
+                            margin-top: 3vh;
+                        }
+                    }
+
                     .table__container {
                         max-height: 400px;
                         overflow-y: scroll;
