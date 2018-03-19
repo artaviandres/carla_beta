@@ -65,8 +65,11 @@ export default class SectionList extends React.Component {
 
                     @media (max-width: 450px) {
                         .table__container {
-                            max-height: 300px;
-                            margin-top: 3vh;
+                            max-height: 300px !important;
+                            margin-top: 2vh !important;
+                        }
+                        table {
+                            width: 97% !important;
                         }
                     }
 
