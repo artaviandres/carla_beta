@@ -1,0 +1,122 @@
+[
+    {
+        "number": "1",
+        "place": "Brazo Derecho - adelante - arriba"
+    },
+    {
+        "number": "2",
+        "place": "Brazo Derecho - adelante - abajo"
+    },
+    {
+        "number": "3",
+        "place": "Brazo Izquierdo - adelante  - arriba"
+    },
+    {
+        "number": "4",
+        "place": "Brazo Izquierdo - adelante  - abajo"
+    },
+    {
+        "number": "5",
+        "place": "Estómago arriba - derecha"
+    },
+    {
+        "number": "6",
+        "place": "Estómago arriba - centro"
+    },
+    {
+        "number": "7",
+        "place": "Estómago arriba - izquierda"
+    },
+    {
+        "number": "8",
+        "place": "Estómago abajo - derecha"
+    },
+    {
+        "number": "9",
+        "place": "Estómago abajo - centro"
+    },
+    {
+        "number": "10",
+        "place": "Estómago abajo - izquierda"
+    },
+    {
+        "number": "11",
+        "place": "Pierna Derecha - adelante  - arriba"
+    },
+    {
+        "number": "12",
+        "place": "Pierna Derecha - adelante  - centro"
+    },
+    {
+        "number": "13",
+        "place": "Pierna Derecha - adelante  - abajo"
+    },
+    {
+        "number": "14",
+        "place": "Pierna Izquierda - adelante  - arriba"
+    },
+    {
+        "number": "15",
+        "place": "Pierna Izquierda - adelante  - centro"
+    },
+    {
+        "number": "16",
+        "place": "Pierna Izquierda - adelante  - abajo"
+    },
+    {
+        "number": "17",
+        "place": "Brazo Izquierdo - atrás - arriba"
+    },
+    {
+        "number": "18",
+        "place": "Brazo Izquierdo - atrás - abajo"
+    },
+    {
+        "number": "19",
+        "place": "Brazo Derecho - atrás - arriba"
+    },
+    {
+        "number": "20",
+        "place": "Brazo Derecho - atrás - abajo"
+    },
+    {
+        "number": "21",
+        "place": "Cintura Izquierda"
+    },
+    {
+        "number": "22",
+        "place": "Cintura Derecha"
+    },
+    {
+        "number": "23",
+        "place": "Nalga Izquierda - afuera"
+    },
+    {
+        "number": "24",
+        "place": "Nalga Izquierda - adentro"
+    },
+    {
+        "number": "25",
+        "place": "Nalga Derecha - adentro"
+    },
+    {
+        "number": "26",
+        "place": "Nalga Derecha - afuera"
+    },
+    {
+        "number": "27",
+        "place": "Pierna Izquierda - atrás - arriba"
+    },
+    {
+        "number": "28",
+        "place": "Pierna Izquierda - atrás - abajo"
+    },
+    {
+        "number": "29",
+        "place": "Pierna Derecha - atrás - arriba"
+    },
+    {
+        "number": "30",
+        "place": "Pierna Derecha - atrás - abajo"
+    }
+]
