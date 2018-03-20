@@ -1,0 +1,50 @@
+[
+    {
+        "number": "01",
+        "name": "Enero"
+    },
+    {
+        "number": "02",
+        "name": "Febrero"
+    },
+    {
+        "number": "03",
+        "name": "Marzo"
+    },
+    {
+        "number": "04",
+        "name": "Abril"
+    },
+    {
+        "number": "05",
+        "name": "Mayo"
+    },
+    {
+        "number": "06",
+        "name": "Junio"
+    },
+    {
+        "number": "07",
+        "name": "Julio"
+    },
+    {
+        "number": "08",
+        "name": "Agosto"
+    },
+    {
+        "number": "09",
+        "name": "Setiembre"
+    },
+    {
+        "number": "10",
+        "name": "Octubre"
+    },
+    {
+        "number": "11",
+        "name": "Noviembre"
+    },
+    {
+        "number": "12",
+        "name": "Diciembre"
+    }
+]

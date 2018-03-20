@@ -4,6 +4,7 @@ import FaPlus from 'react-icons/lib/fa/plus';
 import MdDelete from 'react-icons/lib/md/delete';
 import FaPencil from 'react-icons/lib/fa/pencil';
 import InjectionPlaces from '../../javascripts/places.json';
+import Months from '../../javascripts/months.json';
 
 export default class SectionList extends React.Component {
     constructor(props) {
@@ -11,6 +12,8 @@ export default class SectionList extends React.Component {
     }
     render() {
         let counter = 0;
+        let tempArray = [];
+
         return (
             <div className="table__container">
                 <table>
@@ -34,7 +37,17 @@ export default class SectionList extends React.Component {
                         {
                             _.map(this.props.sections, (section) =>
                                 <tr key={section.id}>
-                                    <th>{section.name}</th>
+                                    {
+                                        // tempArray en posicion 1 = mes, 2 = dia
+                                        Months.map(month => {
+                                            tempArray = section.name.split("-");
+                                            if(month.number === tempArray[1]) {
+                                                return(<th key={counter}>{tempArray[2]} - {month.name}</th>)
+                                            } else {
+                                                counter = counter += counter;
+                                            }
+                                        })
+                                    }
                                     {
                                         InjectionPlaces.map(item => {
                                             counter = counter + 1;
