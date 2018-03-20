@@ -4,7 +4,7 @@ import SectionList from './section-list';
 import Footer from '../footer/footer';
 import Header from '../header/header';
 import {connect} from 'react-redux';
-import {loadSections, createSection, deleteSection} from 'actions/todo';
+import {loadSections, createSection, deleteSection, editEntry} from 'actions/todo';
 
 const customStyles = {
   content : {
@@ -25,15 +25,43 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: false
+      modal: false,
+      editModal: false,
+      id: ''
     }
     this.toggleModal = this.toggleModal.bind(this);
     this.deleteEntry = this.deleteEntry.bind(this);
+    this.toggleEditModal = this.toggleEditModal.bind(this);
   }
 
   deleteEntry = (id) => {
     this.props.deleteSection(id);
     window.location.reload();
+  }
+
+  toggleEditModal(state, id){
+    this.setState({
+      editModal: state,
+      id
+    });
+    // this.props.editEntry(id, name, injectionPlace);
+  }
+
+  onSubmitEdit = (e) => {
+    e.preventDefault();
+    let ref = this.refs['injection-date-edit']
+    let sectionName = ref.value
+    let place = this.refs['injection-place-edit']
+    let injectionPlace = place.value
+    if (sectionName !== '' && injectionPlace !== '') {
+      this.props.editEntry(this.state.id, sectionName, injectionPlace)
+      this.cleanValues(ref, place)
+      this.toggleEditModal(false)
+      window.location.reload();
+    }
+    else {
+      alert('datos vacíos');
+    }
   }
 
   toggleModal(state) {
@@ -75,6 +103,7 @@ class App extends Component {
           sections={this.props.sections}
           addNew={() => this.toggleModal(true)}
           delete={this.deleteEntry}
+          edit={this.toggleEditModal}
         />
         <Modal
           isOpen={this.state.modal}
@@ -89,6 +118,21 @@ class App extends Component {
             <input ref="injection-place" type="number" />
             <br />
             <button>Add new injection</button>
+          </form>
+        </Modal>
+        <Modal
+          isOpen={this.state.editModal}
+          onRequestClose={() => this.toggleEditModal(false)}
+          style={customStyles}
+          contentLabel="edit modal"
+        >
+          <form onSubmit={this.onSubmitEdit}>
+            <p>Editar inyección</p>
+            <input ref="injection-date-edit" type="date" />
+            <br />
+            <input ref="injection-place-edit" type="number" />
+            <br />
+            <button>Edit injection</button>
           </form>
         </Modal>
         <Footer />
@@ -125,4 +169,4 @@ class App extends Component {
       sections: state.todo.sections
     }
   }
-export default connect(mapStateToProps, {loadSections, createSection, deleteSection})(App)
+export default connect(mapStateToProps, {loadSections, createSection, deleteSection, editEntry})(App)

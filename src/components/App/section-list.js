@@ -59,7 +59,7 @@ export default class SectionList extends React.Component {
                                         })
                                     }
                                     <th id={section.id}>
-                                        <a>
+                                        <a onClick={() => this.props.edit(true, section.id)}>
                                             <FaPencil size={20} color="#F79F81" />
                                         </a>
                                         <a style={{ marginLeft: 10 + 'px' }} onClick={() => this.props.delete(section.id)}>

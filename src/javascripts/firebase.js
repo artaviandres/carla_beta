@@ -1,6 +1,7 @@
 import * as firebase from 'firebase'
 import sectionModel from './models/section'
 import todoModel from './models/todo'
+import section from './models/section';
 let database;
 
 export const init = () => {
@@ -29,6 +30,10 @@ export const getSectionsDB = () => {
     let key = database.ref('/').push().key
     let model = sectionModel(key, name, injectionPlace,  firebase.database.ServerValue.TIMESTAMP)
     return database.ref('/'+ key).set(model)
+  }
+  export const editSection = (id, name, injectionPlace) => {
+      let model = sectionModel(id, name, injectionPlace, firebase.database.ServerValue.TIMESTAMP)
+      return database.ref(`/${id}`).update(model)
   }
   // add new todo item into specified section
   export const addTodoItem = (id, name) => {
