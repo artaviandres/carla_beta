@@ -43,3 +43,7 @@ export const getSectionsDB = () => {
       })
     })
   }
+  //delete item
+  export const deleteItem = (id) => {
+      database.ref(`/${id}`).remove();
+  }

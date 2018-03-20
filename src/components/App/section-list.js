@@ -1,6 +1,8 @@
 import React from 'react';
 import _ from 'lodash';
 import FaPlus from 'react-icons/lib/fa/plus';
+import MdDelete from 'react-icons/lib/md/delete';
+import FaPencil from 'react-icons/lib/fa/pencil';
 import InjectionPlaces from '../../javascripts/places.json';
 
 export default class SectionList extends React.Component {
@@ -16,7 +18,9 @@ export default class SectionList extends React.Component {
                         <tr>
                             <th>Fecha</th>
                             <th style={{ paddingTop: 5 + 'px' }}>
-                                <span style={{ marginLeft: 45 + 'px' }}>Lugar de inyección</span>
+                                <span>Lugar de inyección</span>
+                            </th>
+                            <th>
                                 <button
                                     onClick={() => this.props.addNew()}
                                     className="addNew"
@@ -41,6 +45,14 @@ export default class SectionList extends React.Component {
                                             }
                                         })
                                     }
+                                    <th id={section.id}>
+                                        <a>
+                                            <FaPencil size={20} color="#F79F81" />
+                                        </a>
+                                        <a style={{ marginLeft: 10 + 'px' }} onClick={() => this.props.delete(section.id)}>
+                                            <MdDelete size={20} color="#F79F81" />
+                                        </a>
+                                    </th>
                                 </tr>
                             )
                         }
@@ -51,8 +63,7 @@ export default class SectionList extends React.Component {
                         border: none;
                         background-color: transparent;
                         cursor: pointer;
-                        float: right;
-                        margin-right: 10px;
+                        padding: 0;
                     }
                     button:focus {
                         outline: 0;

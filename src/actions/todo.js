@@ -1,4 +1,4 @@
-import { getSectionsDB, addSection } from 'javascripts/firebase'
+import { getSectionsDB, addSection, deleteItem } from 'javascripts/firebase'
 import actionType from 'constants'
 export const loadSections = () => {
  return dispatch => {
@@ -39,4 +39,12 @@ export const createSection = (name, injectionPlace) => {
     })
    })
  }
+}
+export const deleteSection = (id) => {
+    return dispatch => {
+        dispatch({
+            type: actionType.DELETE_SECTION
+        })
+        deleteItem(id)
+    }
 }

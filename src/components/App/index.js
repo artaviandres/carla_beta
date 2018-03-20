@@ -4,7 +4,7 @@ import SectionList from './section-list';
 import Footer from '../footer/footer';
 import Header from '../header/header';
 import {connect} from 'react-redux';
-import {loadSections, createSection} from 'actions/todo';
+import {loadSections, createSection, deleteSection} from 'actions/todo';
 
 const customStyles = {
   content : {
@@ -28,6 +28,12 @@ class App extends Component {
       modal: false
     }
     this.toggleModal = this.toggleModal.bind(this);
+    this.deleteEntry = this.deleteEntry.bind(this);
+  }
+
+  deleteEntry = (id) => {
+    this.props.deleteSection(id);
+    window.location.reload();
   }
 
   toggleModal(state) {
@@ -49,6 +55,7 @@ class App extends Component {
     if (sectionName !== '' && injectionPlace !== '') {
       this.props.createSection(sectionName, injectionPlace)
       this.cleanValues(ref, place)
+      this.toggleModal(false)
     }
     else {
       alert('datos vacíos');
@@ -64,7 +71,11 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <SectionList sections={this.props.sections} addNew={() => this.toggleModal(true)} />
+        <SectionList
+          sections={this.props.sections}
+          addNew={() => this.toggleModal(true)}
+          delete={this.deleteEntry}
+        />
         <Modal
           isOpen={this.state.modal}
           onRequestClose={() => this.toggleModal(false)}
@@ -73,7 +84,7 @@ class App extends Component {
         >
           <form onSubmit={this.onSubmit}>
             <p>Agregar nueva inyección</p>
-            <input ref="injection-date" type="date" />
+            <input ref="injection-date" type="date" id="date" />
             <br />
             <input ref="injection-place" type="number" />
             <br />
@@ -81,6 +92,30 @@ class App extends Component {
           </form>
         </Modal>
         <Footer />
+        <style>{`
+          form {
+            text-align: center;
+          }
+          form p {
+            margin-bottom: 40px;
+          }
+          form input {
+            width: 50%;
+            height: 30px;
+            margin-bottom: 40px;
+          }
+          form button {
+            background-color: #F79F81;
+            color: white;
+            border: none;
+            width: 50%;
+            height: 30px;
+            cursor: pointer;
+          }
+          form button:focus {
+            outline: 0;
+          }
+        `}</style>
       </div>
     );
   }
@@ -90,4 +125,4 @@ class App extends Component {
       sections: state.todo.sections
     }
   }
-export default connect(mapStateToProps, {loadSections, createSection})(App)
+export default connect(mapStateToProps, {loadSections, createSection, deleteSection})(App)
