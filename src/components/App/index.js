@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Modal from 'react-modal';
 import SectionList from './section-list';
 import Footer from '../footer/footer';
-import Header from '../header/header';
 import {connect} from 'react-redux';
 import {loadSections, createSection, deleteSection, editEntry} from 'actions/todo';
 
@@ -98,7 +97,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header />
+        <div className="action-buttons">
+          <button onClick={() => window.scrollTo(0, document.body.scrollHeight)}>Bajar</button>
+          <button onClick={() => window.scrollTo(0, 0)}>Subir</button>
+        </div>
         <SectionList
           sections={this.props.sections}
           addNew={() => this.toggleModal(true)}
@@ -137,6 +139,28 @@ class App extends Component {
         </Modal>
         <Footer />
         <style>{`
+          .action-buttons {
+            display: flex;
+            justify-content: center;
+            width: 100vw;
+            height: 60px;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            background-color: white;
+          }
+          .action-buttons button {
+            margin-right: 15px;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            background: transparent;
+            border: 1px solid #F79F81;
+            font-size: 14px;
+            cursor: pointer;
+          }
+          .action-buttons button:nth-child(2) {
+            margin-right: 0;
+          }
           form {
             text-align: center;
           }

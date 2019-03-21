@@ -10,7 +10,8 @@ export default class Footer extends React.Component {
                 </p>
                 <style>{`
                     .container {
-                        position: absolute;
+                        position: fixed;
+                        background-color: white;
                         bottom: 0;
                         left: 0;
                         right: 0;
